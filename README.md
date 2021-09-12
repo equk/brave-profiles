@@ -1,6 +1,6 @@
-# brave-profiles
+# 🦁 brave-profiles
 
-🦁 brave browser profiles on linux
+brave browser profiles on linux
 
 ## Summary
 
@@ -14,6 +14,11 @@ You can then rename/copy the script to the profile name required (script filenam
 
 Optionally you may also want to change the `profile_folder` variable (default is $HOME/.brave_profiles)
 
+## Features
+
+- [x] Easy creation of profiles
+- [x] Sandbox Check (user namespaces kernel setting)
+
 ## Linux Tweaks
 
 ### Enable Emojis
@@ -24,7 +29,7 @@ In Archlinux install `noto-fonts-emoji`
 
 ### Mouse Wheel Scrolling
 
-You may want to tweak mouse scrolling speed in Brave (there doesn't currently seem to be any built in options to do this).
+You may want to tweak mouse scrolling speed in Brave (there don't seem to be any built in options to do this currently).
 
 There are a few options to set mouse wheel preferences outisde of Brave.
 
