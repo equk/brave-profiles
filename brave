@@ -1,0 +1,61 @@
+#!/bin/bash
+##
+#*****************************************************************
+#     brave-profiles - equk.co.uk
+#*****************************************************************
+#
+# This script was created to simplify and standardize brave configuration
+# across profiles.
+#
+##
+# equk 2018 - equk.co.uk
+##
+# License: MIT (LICENSE file should be included with script)
+
+## variables
+
+profile_name=${0##*/}
+profile_folder="$HOME/.brave_profiles/$profile_name"
+brave_bin="/usr/bin/brave"
+
+# color / colour
+blue="\033[1;34m"
+green="\033[1;32m"
+red="\033[1;31m"
+bold="\033[1;37m"
+reset="\033[0m"
+
+# CLI feedback
+cl_error="[$red ERROR $reset]"
+gplus="[$green+$reset]"
+bplus="[$blue+$reset]"
+
+# Check if running within X Window Session
+if [ "x$DISPLAY" = "x" ]; then
+    echo "must be run within the X Window System." >&2
+    echo "Exiting." >&2
+    exit 1
+fi
+
+# Check for root ( quit if root :x )
+if [ $(whoami) = "root" ]; then
+    echo -e "$cl_error do not run this script as root"
+    exit 1
+fi
+
+# Check if user namespaces is enabled (for sandbox)
+# Note: this is to enforce user namespaces for sandbox
+if [[ ! (-r /proc/sys/kernel/unprivileged_userns_clone && $(</proc/sys/kernel/unprivileged_userns_clone) == 1 && -n $(zcat /proc/config.gz | grep CONFIG_USER_NS=y)) ]]; then
+    echo "User namespaces are not detected as enabled on your system, this is required for sandbox"
+    exit 1
+fi
+
+# Create profile directory if it doesn't exist
+if [[ ! -e $profile_folder ]]; then
+    echo -e "$gplus creating profile folder: $profile_folder"
+    mkdir -p $profile_folder
+fi
+
+# Execute brave
+exec $brave_bin "$@" --user-data-dir=$profile_folder
+
