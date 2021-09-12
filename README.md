@@ -14,3 +14,11 @@ You can then rename/copy the script to the profile name required (script filenam
 
 Optionally you may also want to change the `profile_folder` variable (default is $HOME/.brave_profiles)
 
+## Linux Tweaks
+
+### Enable Emojis
+
+To enable emojis within brave browser you will need to install emoji fonts.
+
+In Archlinux install `noto-fonts-emoji`
+
