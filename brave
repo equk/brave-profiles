@@ -17,6 +17,7 @@
 profile_name=${0##*/}
 profile_folder="$HOME/.brave_profiles/$profile_name"
 brave_bin="/usr/bin/brave"
+brave_flags="--ssl-version-min=tls1 --enable-smooth-scrolling --enable-tab-audio-muting"
 
 # color / colour
 blue="\033[1;34m"
@@ -57,5 +58,5 @@ if [[ ! -e $profile_folder ]]; then
 fi
 
 # Execute brave
-exec $brave_bin "$@" --user-data-dir=$profile_folder
+exec $brave_bin "$@" --user-data-dir=$profile_folder $brave_flags
 
