@@ -51,10 +51,26 @@ if [[ ! (-r /proc/sys/kernel/unprivileged_userns_clone && $(</proc/sys/kernel/un
     exit 1
 fi
 
+# Check if jq installed
+if ! [ -x "$(command -v jq)" ]; then
+  echo -e "$cl_error jq not installed"
+  echo -e "$cl_error exiting ...."
+  exit 1
+fi
+
 # Create profile directory if it doesn't exist
 if [[ ! -e $profile_folder ]]; then
     echo -e "$gplus creating profile folder: $profile_folder"
     mkdir -p $profile_folder
+fi
+
+# Check for Google Account
+if [[ -r $profile_folder/Default/Preferences ]]; then
+    result=$(cat $profile_folder/Default/Preferences | jq ".gaia_cookie")
+    if [ "$result" != "null" ]; then
+      echo -e "$gplus Google Account Detected!"
+      notify-send "Brave Profile $profile_name Started" "This Profile Has An Associated Google Account" -i brave-desktop
+    fi
 fi
 
 # Execute brave
