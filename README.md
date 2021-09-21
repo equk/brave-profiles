@@ -8,16 +8,26 @@ Simple script to easily create new brave profiles.
 
 ## Usage
 
-Clone this repo and copy the files somewhere accessible.
+Clone this repo and copy the script somewhere accessible.
 
 You can then rename/copy the script to the profile name required (script filename = profile name).
 
 Optionally you may also want to change the `profile_folder` variable (default is `$HOME/.brave_profiles`)
 
+## Why Use Profiles?
+
+- [x] Keep Google services (& logins) seperate
+- [x] Testing webapps
+- [x] Seperate other services from main profile
+- [x] Use differing configurations for services or webapps
+
+*see notes below for more info on persistant google cookies*
+
 ## Features
 
 - [x] Easy creation of profiles
 - [x] Sandbox Check (user namespaces kernel setting)
+- [x] Detect associated Google Account
 
 ## Linux Tweaks
 
@@ -50,3 +60,10 @@ I personally use `imwheel` as it allows me to set scrolling preferences per appl
     Control_L, Down, Control_L|Button5
 ```
 
+## Notes
+
+After looking at profile data it seems Brave stores a special cookie for Google Accounts within the profile preferences file.
+
+I'm not sure if this relates to analytics or is specific to Google related extensions / features.
+
+I have added a check using this to warn users when starting brave profiles.
