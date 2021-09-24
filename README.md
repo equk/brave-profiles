@@ -2,6 +2,10 @@
 
 Brave Browser profiles on linux
 
+Blog: https://equk.co.uk/2021/09/22/brave-browser-profiles
+
+![](./screenshots/brave-linux.png)
+
 ## Summary
 
 Simple script to easily create new brave profiles.
