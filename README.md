@@ -21,8 +21,11 @@ Optionally you may also want to change the `profile_folder` variable (default is
 ## Features
 
 - [x] Easy creation of profiles
-- [x] Sandbox Check (user namespaces kernel setting)
-- [x] Detect associated Google Account
+- [x] Sandbox Check
+- [x] Custom commandline flags
+- [x] Detect associated Google Account & alert user
+
+![](./screenshots/brave_notify.png)
 
 ## Linux Tweaks
 
