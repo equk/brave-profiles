@@ -65,3 +65,10 @@ After looking at profile data it seems Brave stores a reference to cookies for G
 I'm not sure if this relates to analytics or is specific to Google related extensions / features.
 
 I have added a check using this to warn users when starting brave profiles. (as I have seperate profiles setup for Google services like Youtube etc)
+
+## Contact
+
+Website: https://equk.co.uk
+
+Twitter: [@equilibriumuk](https://twitter.com/equilibriumuk)
+
